@@ -41,14 +41,14 @@ pipeline {
                             nexusUrl: NEXUS_URL,
                             groupId: pom.groupId,
                             version: pom.version,
-                            repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
+                            repository: maven-central-repository,
+                            credentialsId: NEXUS_CRED,
                             artifacts: [
-                                [artifactId: pom.artifactId,
+                                [artifactId: pom.my-app,
                                 classifier: '',
                                 file: artifactPath,
                                 type: pom.packaging],
-                                [artifactId: pom.artifactId,
+                                [artifactId: pom.my-app,
                                 classifier: '',
                                 file: "pom.xml",
                                 type: "pom"]
