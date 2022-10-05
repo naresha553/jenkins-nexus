@@ -18,6 +18,12 @@ pipeline {
                 }
             }
         }
+        stage("Maven Clean") {
+            steps {
+                script {
+                    sh "mvn clean install"
+                }
+            }
         stage("Maven Build") {
             steps {
                 script {
