@@ -6,7 +6,7 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "98ca8001151c.mylabserver.com:8081/"
+        NEXUS_URL = "34.222.74.12:8081/"
         NEXUS_REPOSITORY = "java-app"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
@@ -53,7 +53,7 @@ pipeline {
                             groupId: 'pom.com.mycompany.app',
                             version: 'pom.1.0-SNAPSHOT',
                             repository: 'maven-central-repository',
-                            credentialsId: 'NEXUS_CRED',
+                            credentialsId: NEXUS_CRED,
                             artifacts: [
                                 [artifactId: 'pom.my-app',
                                 classifier: '',
