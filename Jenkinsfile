@@ -39,8 +39,10 @@ pipeline {
                 script {
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                    sh "echo $filesByGlob"
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     artifactPath = filesByGlob[0].path;
+                    sh "echo $artifactPath"
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
@@ -48,8 +50,8 @@ pipeline {
                             nexusVersion: NEXUS_VERSION,
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
-                            groupId: pom.groupId,
-                            version: pom.version,
+                            groupId: pom.com.mycompany.app,
+                            version: pom.1.0-SNAPSHOT,
                             repository: maven-central-repository,
                             credentialsId: NEXUS_CRED,
                             artifacts: [
