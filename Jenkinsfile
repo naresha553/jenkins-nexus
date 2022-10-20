@@ -6,7 +6,7 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "34.222.74.12:8081/"
+        NEXUS_URL = "172.31.42.16:8081/"
         NEXUS_REPOSITORY = "java-app"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
